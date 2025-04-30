@@ -44,3 +44,4 @@ st.bar_chart(stock_categoria)
 st.subheader("Distribución por Almacén")
 stock_almacen = df_filtrado.groupby("Almacén")["Cantidad_Actual"].sum()
 st.bar_chart(stock_almacen)
+
