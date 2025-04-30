@@ -1,9 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-# Configurar página
-st.set_page_config(page_title="Sistema de Inventario ConsumoMax", page_icon=" ", layout="wide")
-
 # Cargar dataset
 @st.cache_data
 def cargar_datos():
@@ -11,8 +8,8 @@ def cargar_datos():
 
 df = cargar_datos()
 
-# Verificar las primeras filas del DataFrame para inspeccionar las columnas
-st.write("Primeras filas del dataset:", df.head())
+# Mostrar los nombres de las columnas
+st.write("Nombres de las columnas en el dataset:", df.columns)
 
 # Título principal
 st.title("Sistema Inteligente de Control de Inventario - ConsumoMax")
@@ -21,6 +18,7 @@ st.title("Sistema Inteligente de Control de Inventario - ConsumoMax")
 st.sidebar.header("Filtros de búsqueda")
 
 # Asegurarse de que las columnas existen en el DataFrame antes de usarlas
+# Ajusta los nombres de las columnas según los que encuentres en el output de df.columns
 if "Almacén" in df.columns and "Categoría" in df.columns:
     almacen = st.sidebar.multiselect("Seleccionar almacén:", options=df["Almacén"].unique(), default=df["Almacén"].unique())
     categoria = st.sidebar.multiselect("Seleccionar categoría:", options=df["Categoría"].unique(), default=df["Categoría"].unique())
@@ -52,3 +50,4 @@ if "Almacén" in df.columns and "Categoría" in df.columns:
     st.bar_chart(stock_almacen)
 else:
     st.error("Las columnas 'Almacén' y/o 'Categoría' no se encuentran en el dataset.")
+
