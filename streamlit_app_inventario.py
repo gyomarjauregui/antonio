@@ -1,6 +1,8 @@
-
 import streamlit as st
 import pandas as pd
+
+# Configurar página (debe ser la primera línea de código)
+st.set_page_config(page_title="Sistema de Inventario ConsumoMax", page_icon=" ", layout="wide")
 
 # Cargar dataset
 @st.cache_data
@@ -8,9 +10,6 @@ def cargar_datos():
     return pd.read_csv("dataset_inventario_consumomax.csv", parse_dates=["Fecha_Ingreso"])
 
 df = cargar_datos()
-
-# Configurar página
-st.set_page_config(page_title="Sistema de Inventario ConsumoMax", page_icon=" ", layout="wide")
 
 # Título principal
 st.title("Sistema Inteligente de Control de Inventario - ConsumoMax")
