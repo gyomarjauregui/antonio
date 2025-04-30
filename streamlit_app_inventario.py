@@ -11,8 +11,8 @@ def cargar_datos():
 
 df = cargar_datos()
 
-# Ver las columnas del dataframe para depuración
-st.write("Columnas disponibles en el dataset:", df.columns)
+# Verificar las primeras filas del DataFrame para inspeccionar las columnas
+st.write("Primeras filas del dataset:", df.head())
 
 # Título principal
 st.title("Sistema Inteligente de Control de Inventario - ConsumoMax")
